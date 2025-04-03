@@ -6,7 +6,7 @@ frontend:
       commands:
         - npm run ci
   artifacts:
-    baseDirectory: out
+    baseDirectory: client/dist
     files:
       - 'client/dist/**/*'
       - 'packages/data-provider/dist/**/*'        
