@@ -1,0 +1,23 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        - env | grep NEXT_PUBLIC_
+        - npm run frontend:ci
+  artifacts:
+    baseDirectory: .next
+    files:
+      - 'client/dist/**/*'
+      - 'packages/data-provider/dist/**/*'        
+  cache:
+    paths:
+      - client/node_modules/**/*
+      - client/.npm/**/*
+      - packages/data-provider/node_modules/**/*
+      - packages/data-provider/.npm/**/*
+  customHeaders:
+    - pattern: '**/*'
+      headers:
+        - key: 'Cache-Control'
+          value: 'public, max-age=0, must-revalidate'
