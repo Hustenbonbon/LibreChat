@@ -1,11 +1,12 @@
 version: 1
+appRoot: client
 frontend:
   phases:
     build:
       commands:
-        - env | grep NEXT_PUBLIC_
-        - npm run frontend:ci
+        - npm run ci
   artifacts:
+    baseDirectory: out
     files:
       - 'client/dist/**/*'
       - 'packages/data-provider/dist/**/*'        
