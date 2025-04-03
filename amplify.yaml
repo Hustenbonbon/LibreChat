@@ -1,22 +1,21 @@
 version: 1
-appRoot: client
 frontend:
   phases:
     build:
       commands:
         - env | grep NEXT_PUBLIC_
-        - npm run frontend
+        - npm run frontend:ci
   artifacts:
-    baseDirectory: .next
+    baseDirectory: client/dist
     files:
       - 'client/dist/**/*'
-      # - 'packages/data-provider/dist/**/*'        
+      - 'packages/data-provider/dist/**/*'        
   cache:
     paths:
       - client/node_modules/**/*
       - client/.npm/**/*
-      # - packages/data-provider/node_modules/**/*
-      # - packages/data-provider/.npm/**/*
+      - packages/data-provider/node_modules/**/*
+      - packages/data-provider/.npm/**/*
   customHeaders:
     - pattern: '**/*'
       headers:
