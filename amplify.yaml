@@ -6,7 +6,6 @@ frontend:
         - env | grep NEXT_PUBLIC_
         - npm run frontend:ci
   artifacts:
-    baseDirectory: client/dist
     files:
       - 'client/dist/**/*'
       - 'packages/data-provider/dist/**/*'        
