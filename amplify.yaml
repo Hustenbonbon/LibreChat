@@ -10,28 +10,26 @@ frontend:
       commands:
         - cd client
         - npm run build
-        - |
-          cat << EOF > dist/deploy-manifest.json
-          {
-            "version": 1,
-            "routes": [
-              {
-                "source": "/<*>",
-                "headers": {
-                  "cache-control": "s-maxage=0"
-                },
-                "target": "/index.html",
-                "status": "200"
-              }
-            ],
-            "framework": {
-              "name": "custom",
-              "version": "1.0.0"
-            },
-            "buildCommand": "npm run build",
-            "startCommand": "npm run start"
-          }
-          EOF
+        # - |
+        #   cat << EOF > dist/deploy-manifest.json
+        #   {
+        #     "version": 1,
+        #     "routes": [
+        #       {
+        #         "source": "/<*>",
+        #         "headers": {
+        #           "cache-control": "public, max-age=0, must-revalidate"
+        #         },
+        #         "target": "/index.html",
+        #         "status": "200"
+        #       }
+        #     ],
+        #     "framework": {
+        #       "name": "vite",
+        #       "version": "6.2.3"
+        #     }
+        #   }
+        #   EOF
   artifacts:
     baseDirectory: client/dist
     files:
