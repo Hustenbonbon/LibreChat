@@ -9,6 +9,8 @@ frontend:
     build:
       commands:
         - cd client
+        - pwd
+        - ls -la
         - npm run build
         # - |
         #   cat << EOF > dist/deploy-manifest.json
