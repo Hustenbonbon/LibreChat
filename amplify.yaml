@@ -10,11 +10,11 @@ frontend:
       commands:
         - cd client
         - npm run build
+        - echo '{"name":"MyApp","version":"1.0.0","buildCommand":"npm run build","startCommand":"npm run start","framework":"custom"}' > dist/deploy-manifest.json
   artifacts:
     baseDirectory: client/dist
     files:
-      - 'client/dist/**/*'
-      # - 'packages/data-provider/dist/**/*'        
+      - '**/*'
   cache:
     paths:
       - client/node_modules/**/*
