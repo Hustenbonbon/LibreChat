@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - npm run ci
+        - npm ci
     build:
       commands:
         - cd packages/data-provider
