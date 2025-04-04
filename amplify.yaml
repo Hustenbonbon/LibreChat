@@ -39,9 +39,9 @@ frontend:
   cache:
     paths:
       - client/node_modules/**/*
-      - client/.npm/**/*
+      - client/dist/**/*
       - packages/data-provider/node_modules/**/*
-      - packages/data-provider/.npm/**/*
+      - packages/data-provider/dist/**/*
   customHeaders:
     - pattern: '**/*'
       headers:
