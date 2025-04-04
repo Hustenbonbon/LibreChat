@@ -1,15 +1,20 @@
 version: 1
-appRoot: client
 frontend:
   phases:
-    build:
+    pre-build:
       commands:
         - npm run ci
+        - cd packages/data-provider
+        - npm run build
+    build:
+      commands:
+        - cd client
+        - npm run build
   artifacts:
     baseDirectory: client/dist
     files:
       - 'client/dist/**/*'
-      - 'packages/data-provider/dist/**/*'        
+      # - 'packages/data-provider/dist/**/*'        
   cache:
     paths:
       - client/node_modules/**/*
