@@ -1,14 +1,16 @@
 version: 1
 frontend:
   phases:
-    pre-build:
+    preBuild:
       commands:
         - npm run ci
-        - cd packages/data-provider
-        - npm run build
     build:
       commands:
-        - cd client
+        - cd packages/data-provider
+        - pwd
+        - ls -la
+        - npm run build      
+        - cd ../../client
         - pwd
         - ls -la
         - npm run build
